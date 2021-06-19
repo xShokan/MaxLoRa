@@ -7,6 +7,7 @@ import random
 # N = 100
 # Range = [0, 200]
 
+
 def Generate(Num, Range):
     sf7 = np.array([7, -126.5, -124.25, -120.75])
     sf8 = np.array([8, -127.25, -126.75, -124.0])
@@ -29,19 +30,21 @@ def Generate(Num, Range):
     maxX = 2 * maxDist * math.sin(60 * (math.pi / 180))  # == sqrt(3) * maxDist
     maxY = 2 * maxDist * math.sin(30 * (math.pi / 180))  # == maxdist
 
-    df = pd.DataFrame(columns=['lambda', 'x', 'y', 'RSSI'])
+    df = pd.DataFrame(columns=['x', 'y', 'RSSI'])
 
     for i in range(Num):
-        lambda0 = random.randint(Range[0], Range[1])
+        dict0 = {}
+        for h in range(len(Range)):
+            lambda0 = random.randint(Range[h][0], Range[h][1])
+            dict0['lambda' + str(h)] = lambda0
         posx = random.randint(0, int(maxX))
         posy = random.randint(0, int(maxY))
         dist = np.sqrt(((abs(bsx - posx)) ** 2) + ((abs(bsy - posy)) ** 2))
         Lpl = Lpld0 + 10 * gamma * math.log10(dist / d0)
         Prx = Ptx - GL - Lpl
-        dict0 = {}
+
         dict0['x'] = posx
         dict0['y'] = posy
-        dict0['lambda'] = lambda0
         dict0['RSSI'] = Prx
 
         df = df.append(dict0, ignore_index=True)

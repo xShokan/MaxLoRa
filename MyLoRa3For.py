@@ -58,9 +58,6 @@ import os
 import pandas as pd
 from EXPLoRaAT import EXPLoRaAT_func
 from EXPLoRaSF import EXPLoRaSF_func
-from calAoI2 import  calAoI2
-from KMeansSim import KMeans_func
-
 # turn on/off graphics
 graphics = 0
 
@@ -446,7 +443,7 @@ def transmit(env,node):
         node.packet.processed = 0
         node.packet.lost = False
 
-def main_func(exp, Num, type0):
+def main_func(exp, Num, type0, rate):
     simtime = 1 * 3600 * 1000 * 1
 
     global nodes
@@ -464,17 +461,16 @@ def main_func(exp, Num, type0):
     if type0 == 1:
         experiment = 5
         EXPLoRaSF_func(Num)
-        df = pd.read_csv("test_lambda_expSF" + str(Num) + exp + ".csv")
+        df = pd.read_csv("./data/OneGateway_EXPLoRaSF_" + str(Num) + exp + ".csv")
     if type0 == 2:
         experiment = 5
         EXPLoRaAT_func(Num)
-        df = pd.read_csv("test_lambda_expAT" + str(Num) + exp + ".csv")
+        df = pd.read_csv("./data/OneGateway_EXPLoRaAT_" + str(Num) + exp + ".csv")
     if type0 == 3:
         experiment = 3
-        df = pd.read_csv("test_lambda_expAT" + str(Num) + exp + ".csv")
+        df = pd.read_csv("./data/OneGateway_" + str(Num) + exp + ".csv")
 
     nrNodes = len(df)
-    rate = 'lambda'
 
     # prepare graphics and add sink
     if (graphics == 1):
@@ -619,10 +615,11 @@ avgAoI_arr_100 = []
 der = 0
 avgAoI = 0
 
-type_ = 0
+type_ = 2
+rate = 'lambda1'
 
 for Num in range(1, 6):
-    der = main_func("", Num * 100, type_)
+    der = main_func("", Num * 100, type_, rate)
     PDR_arr.append(der)
 
 # for exp in ["_0", "_1", "_2", "_3", "_4"]:

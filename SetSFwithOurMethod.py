@@ -14,6 +14,8 @@ def findMIS(Matrix, df, SF):
             break
         # Set SF and clear neighbors
         df.loc[MinDegreeIndex, 'SF'] = SF
+        if SF > 7:
+            print("#", SF)
         for i in range(len(df)):
             if df.loc[MinDegreeIndex, 'degree'] == 0:
                 break
@@ -28,7 +30,7 @@ def findMIS(Matrix, df, SF):
 
 
 
-def SetSF(Num, X):
+def SetSF(Num, hour, X, X_Num):
     df = pd.read_csv("./data/OneGateway_" + str(Num) + ".csv")
     df['SF'] = 0
     df['degree'] = 0
@@ -56,8 +58,13 @@ def SetSF(Num, X):
             for k in range(j, len(df)):
                 if df.loc[k, 'SF'] != 0 or k == j:
                     continue
-                CollideFactor = 2 * df.loc[j, 'lambda'] * df.loc[k, 'lambda'] * 0.3 / 3600
-                if CollideFactor > X:
+
+                CollideFactorNum = 0
+                for h in range(hour):
+                    CollideFactor = 2 * df.loc[j, 'lambda' + str(h)] * df.loc[k, 'lambda' + str(h)] * 0.3 / 3600
+                    if CollideFactor > X:
+                        CollideFactorNum += 1
+                if CollideFactorNum >= X_Num:
                     Matrix[j][k] = 1
                     Matrix[k][j] = 1
                     df.loc[j, 'degree'] += 1

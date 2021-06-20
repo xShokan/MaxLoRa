@@ -1,5 +1,6 @@
 import pandas as pd
 import numpy as np
+import random
 
 def findMIS(Matrix, df, SF):
     while len(df[df['degree'] == 0]) > 0:
@@ -42,10 +43,10 @@ def SetSF(Num, hour, X, X_Num):
     while len(df[df['SF'] == 0]) > 0:
         print(i)
         count = 0
-        if i == 12:
+        if i == 13:
             for j in range(len(df)):
                 if df.loc[j, 'SF'] == 0:
-                    df.loc[j, 'SF'] = i
+                    df.loc[j, 'SF'] = random.randint(7, 12)
                     count += 1
             print("count:" + str(count))
             break

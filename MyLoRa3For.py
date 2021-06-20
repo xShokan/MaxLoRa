@@ -457,6 +457,7 @@ def main_func(exp, Num, type0, rate):
     env = simpy.Environment()
 
     if type0 == 0:
+        experiment = 5
         df = pd.read_csv('./data/OneGateway_' + str(Num) + exp + '.csv')
     if type0 == 1:
         experiment = 5

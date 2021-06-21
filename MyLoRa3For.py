@@ -617,7 +617,7 @@ der = 0
 avgAoI = 0
 
 type_ = 2
-rate = 'lambda1'
+rate = 'lambda0'
 
 for Num in range(1, 6):
     der = main_func("", Num * 100, type_, rate)

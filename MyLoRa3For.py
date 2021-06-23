@@ -616,8 +616,8 @@ avgAoI_arr_100 = []
 der = 0
 avgAoI = 0
 
-type_ = 2
-rate = 'lambda0'
+type_ = 0
+rate = 'lambda3'
 
 for Num in range(1, 6):
     der = main_func("", Num * 100, type_, rate)
@@ -631,10 +631,10 @@ for Num in range(1, 6):
 print(PDR_arr)
 
 f = open('result_others' + str(type_) + '.txt','a')
-f.write("my_PDR:\n")
+f.write("type: " + str(type_) + ", rate: " + str(rate) + ", PDR: \n")
 for i in PDR_arr:
     f.write(str(i) + ',')
-f.write('\nmy_avgAoI_arr')
+# f.write('\nmy_avgAoI_arr')
 # for i in PDR_arr_100:
 #     f.write(str(i) + ',')
 # f.write('\nmy_avgAoI_arr_100')

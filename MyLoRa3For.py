@@ -502,14 +502,12 @@ def main_func(exp, Num, type0, rate):
     # start simulation
     env.run(until=simtime)
 
-    # if type0 == 0:
-    #     df.to_csv('./data/OneGateway_' + str(Num) + exp + '.csv', index=False)
-    # if type0 == 1:
-    #     df_col.to_csv('info_col_lambda_expSF' + str(Num) + exp + '.csv', index=False)
-    #     df_node.to_csv('info_node_lambda_expSF' + str(Num) + exp + '.csv', index=False)
-    # if type0 == 2:
-    #     df_col.to_csv('info_col_lambda_expAT' + str(Num) + exp + '.csv', index=False)
-    #     df_node.to_csv('info_node_lambda_expAT' + str(Num) + exp + '.csv', index=False)
+    if type0 == 0:
+        df.to_csv('./data/info_col_lambda_' + str(Num) + exp + '.csv', index=False)
+    if type0 == 1:
+        df_col.to_csv('info_col_lambda_expSF' + str(Num) + exp + '.csv', index=False)
+    if type0 == 2:
+        df_col.to_csv('info_col_lambda_expAT' + str(Num) + exp + '.csv', index=False)
 
     # print stats and save into file
     print("nrCollisions ", nrCollisions)
@@ -556,6 +554,7 @@ def main_func(exp, Num, type0, rate):
         myfile.write(res)
     myfile.close()
     return der
+
 
 avgSendTime = 20000
 experiment = 3
@@ -616,27 +615,29 @@ avgAoI_arr_100 = []
 der = 0
 avgAoI = 0
 
-type_ = 0
-rate = 'lambda3'
+type_ = 1
+rate = 'lambda5'
 
-for Num in range(1, 6):
-    der = main_func("", Num * 100, type_, rate)
-    PDR_arr.append(der)
+for i in range(1):
+    type_ = 1
+    for Num in range(2, 7):
+        der = main_func("", Num * 100, type_, rate)
+        PDR_arr.append(der)
 
-# for exp in ["_0", "_1", "_2", "_3", "_4"]:
-#     der, avgAoI = main_func(exp, 100)
-#     PDR_arr_100.append(der)
-#     avgAoI_arr_100.append(avgAoI)
+    # for exp in ["_0", "_1", "_2", "_3", "_4"]:
+    #     der, avgAoI = main_func(exp, 100)
+    #     PDR_arr_100.append(der)
+    #     avgAoI_arr_100.append(avgAoI)
 
-print(PDR_arr)
+    print(PDR_arr)
 
-f = open('result_others' + str(type_) + '.txt','a')
-f.write("type: " + str(type_) + ", rate: " + str(rate) + ", PDR: \n")
-for i in PDR_arr:
-    f.write(str(i) + ',')
-# f.write('\nmy_avgAoI_arr')
-# for i in PDR_arr_100:
-#     f.write(str(i) + ',')
-# f.write('\nmy_avgAoI_arr_100')
-f.write('\n')
-f.close()
+    f = open('result_others' + str(type_) + '.txt','a')
+    f.write("type: " + str(type_) + ", rate: " + str(rate) + ", PDR: \n")
+    for i in PDR_arr:
+        f.write(str(i) + ',')
+    # f.write('\nmy_avgAoI_arr')
+    # for i in PDR_arr_100:
+    #     f.write(str(i) + ',')
+    # f.write('\nmy_avgAoI_arr_100')
+    f.write('\n')
+    f.close()

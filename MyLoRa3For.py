@@ -257,7 +257,7 @@ class myNode():
                         rounds = rounds + 1
                         if rounds == 100:
                             print("could not place new node, giving up")
-                            exit(-1)
+                            # exit(-1)
             else:
                 print("first node")
                 self.x = posx
@@ -616,28 +616,32 @@ der = 0
 avgAoI = 0
 
 type_ = 1
-rate = 'lambda5'
-
-for i in range(1):
-    type_ = 1
-    for Num in range(2, 7):
-        der = main_func("", Num * 100, type_, rate)
+# rate = 'lambda4'
+for k in range(0, 6):
+    rate = 'lambda' + str(k)
+    for i in range(4):
+        PDR_arr = []
+        type_ = i
+        # for Num in range(2, 7):
+        #     der = main_func("", Num * 100, type_, rate)
+        #     PDR_arr.append(der)
+        der = main_func("", 100, type_, rate)
         PDR_arr.append(der)
 
-    # for exp in ["_0", "_1", "_2", "_3", "_4"]:
-    #     der, avgAoI = main_func(exp, 100)
-    #     PDR_arr_100.append(der)
-    #     avgAoI_arr_100.append(avgAoI)
+        # for exp in ["_0", "_1", "_2", "_3", "_4"]:
+        #     der, avgAoI = main_func(exp, 100)
+        #     PDR_arr_100.append(der)
+        #     avgAoI_arr_100.append(avgAoI)
 
-    print(PDR_arr)
+        print(PDR_arr)
 
-    f = open('result_others' + str(type_) + '.txt','a')
-    f.write("type: " + str(type_) + ", rate: " + str(rate) + ", PDR: \n")
-    for i in PDR_arr:
-        f.write(str(i) + ',')
-    # f.write('\nmy_avgAoI_arr')
-    # for i in PDR_arr_100:
-    #     f.write(str(i) + ',')
-    # f.write('\nmy_avgAoI_arr_100')
-    f.write('\n')
-    f.close()
+        f = open('result_others' + str(type_) + '.txt','a')
+        f.write("type: " + str(type_) + ", rate: " + str(rate) + ", PDR: \n")
+        for i in PDR_arr:
+            f.write(str(i) + ',')
+        # f.write('\nmy_avgAoI_arr')
+        # for i in PDR_arr_100:
+        #     f.write(str(i) + ',')
+        # f.write('\nmy_avgAoI_arr_100')
+        f.write('\n')
+        f.close()

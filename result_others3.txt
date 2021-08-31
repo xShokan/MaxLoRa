@@ -8,3 +8,81 @@ type: 3, rate: lambda5, PDR:
 0.18461494269382128,0.10753425446834991,0.07819923347214162,0.06481591485421899,0.05474932995307159,
 type: 3, rate: lambda4, PDR: 
 0.18741444154646456,0.09758572067269664,0.06935878889396477,0.05285470518116948,0.04044882932787421,
+type: 3, rate: lambda2, PDR: OK
+0.3188829634726762,0.22074338581399122,0.2105375587444397,0.22735498351686892,
+type: 3, rate: lambda4, PDR: OK
+0.2646697695668313,0.18791884370740572,0.17188133957011012,0.1397987197551679,
+type: 3, rate: lambda1, PDR: 
+0.4640139796993361,
+type: 3, rate: lambda3, PDR: 
+0.25699629728126344,
+type: 3, rate: lambda5, PDR: 
+0.2232206516865495,
+type: 3, rate: lambda4, PDR: 
+0.15041104899704044,
+type: 3, rate: lambda4, PDR: 
+0.15592429727168922,
+type: 3, rate: lambda1, PDR: 
+0.35718626405921555,
+type: 3, rate: lambda2, PDR: 
+0.15605430610733284,
+type: 3, rate: lambda3, PDR: 
+0.09186859463913155,
+type: 3, rate: lambda4, PDR: 
+0.06145244315724265,
+type: 3, rate: lambda0, PDR: 
+0.40114545607681296,
+type: 3, rate: lambda1, PDR: 
+0.24145643791426194,
+type: 3, rate: lambda2, PDR: 
+0.16354688431597775,
+type: 3, rate: lambda3, PDR: 
+0.11333937528980315,
+type: 3, rate: lambda4, PDR: 
+0.08374219833564493,
+type: 3, rate: lambda0, PDR: 
+0.279033236232763,
+type: 3, rate: lambda1, PDR: 
+0.20430681765618627,
+type: 3, rate: lambda2, PDR: 
+0.1477583763749071,
+type: 3, rate: lambda3, PDR: 
+0.1266853704349821,
+type: 3, rate: lambda4, PDR: 
+0.09536556933746752,
+type: 3, rate: lambda5, PDR: 
+0.07599330791842342,
+type: 3, rate: lambda0, PDR: 
+0.3953331927668504,
+type: 3, rate: lambda1, PDR: 
+0.24150398296995243,
+type: 3, rate: lambda0, PDR: 
+0.5667430477404309,
+type: 3, rate: lambda1, PDR: 
+0.4679752825377801,
+type: 3, rate: lambda2, PDR: 
+0.3485810439517794,
+type: 3, rate: lambda0, PDR: 
+0.2919021228502567,
+type: 3, rate: lambda1, PDR: 
+0.17897458821132922,
+type: 3, rate: lambda2, PDR: 
+0.13008356718516728,
+type: 3, rate: lambda3, PDR: 
+0.10078253065853227,
+type: 3, rate: lambda4, PDR: 
+0.08154734207396999,
+type: 3, rate: lambda5, PDR: 
+0.062291541691661664,
+type: 3, rate: lambda0, PDR: 
+0.8430795931157499, 0.7526318483509359, 0.599919001695902, 0.42300978010086365, 0.2946335627087023, 0.21220055992907888,
+type: 3, rate: lambda1, PDR: 
+0.7526318483509359,
+type: 3, rate: lambda2, PDR: 
+0.599919001695902,
+type: 3, rate: lambda3, PDR: 
+0.42300978010086365,
+type: 3, rate: lambda4, PDR: 
+0.2946335627087023,
+type: 3, rate: lambda5, PDR: 
+0.21220055992907888,
